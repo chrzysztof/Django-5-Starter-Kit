@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+
 #Login and logout 
 LOGIN_REDIRECT_URL = 'main:dashboard'
 LOGIN_URL = 'login'
