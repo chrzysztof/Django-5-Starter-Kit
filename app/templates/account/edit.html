@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Edycja konta{% endblock %}
+
+{% block content %}
+<div class="l-main">
+    {% include 'partials/_sidebar.html' %}
+    <main id="content" class="l-main__body" data-item="body">
+        {% include 'partials/_header.html' %}
+        <div class="app-heading">
+            <div class="container">
+                <div class="app-heading__inner">
+                    <div class="app-heading__caption">
+                        <h1 class="app-heading__title">Edycja konta </h1>
+                        <p>Ustawienia konta możesz zmienić za pomocą poniższego formularza:</p>
+                    </div>
+                    <div class="app-heading__actions">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="app-body">
+                <div class="app-card app-card--sidebar">
+                    <div class="app-card__sidebar">
+                        <div class="block-navigation">
+                            <nav class="block-navigation__menu" data-state="open">
+                                <ul>
+                                    <li>
+                                        <a href="/account/profile/" aria-current="page" data-state="active">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/account/notifications/">
+                                            Notifications
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/account/password/">
+                                            Password
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="app-card__body">
+                        
+                            <form method="post" enctype="multipart/form-data">
+                                <h3>Dane podstawowe</h3>
+                                <div class="form-group-stack form-group-stack--bordered form-group-container">
+                                    {% for field in user_form %}
+                                    <div class="form-group--row">
+                                      <label class="form-label form-label" for="{{ field.auto_id }}">{{ field.label }}</label>
+                                      {{ field }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <h3>Dodatkowe informacje</h3>
+                                <div class="form-group-stack form-group-stack--bordered form-group-container">
+                                    
+                                    <div class="form-group--row">
+                                        <label class="form-label" for="product-image">Image</label>
+                                        <div class="file-group-container">
+                                        <div class="file-group">
+                                            <div class="file-group__preview">
+                                                <img src="{{ user.profile.photo.url }}" alt="">
+                                            </div>
+                                            <div class="file-group__body">
+                                                <p class="file-group__title">Upload avatar image</p>
+                                                <div class="">
+                                                    <button class="btn btn--delete btn--icon file-group__remove" aria-label="Remove file">
+                                                        <svg aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="btn__icon">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                        </svg>
+
+                                                    </button>
+                                                    {{profile_form.photo}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group--row">
+                                      <label class="form-label form-label" for="{{ profile_form.date_of_birth.auto_id }}">{{ profile_form.date_of_birth.label }}</label>
+                                      {{ profile_form.date_of_birth }}
+                                    </div>
+                                </div>
+
+                                {% csrf_token %}
+                                <br>
+                                <div class="app-actions">
+                                    <input type="submit" class="btn btn--primary" value="Zapisz zmiany ">
+                                    <button class="btn btn--light">Cancel</button>
+                                </div>
+                              </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'partials/_footer.html' %}
+    </main>
+</div>
+{% endblock %}

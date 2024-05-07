@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Logowanie{% endblock %}
+
+{% block content %}
+
+<main class="l-auth">
+  <div class="l-auth__inner">
+      <div class="l-auth__form">
+          <a class="l-auth__logo" href="#">
+              <img src="https://ui.sprucecss.com/img/cone-logo.svg" alt="Cone" height="48" width="48" />
+          </a>
+          <div class="auth-form">
+              <h1 class="auth-form__title">Zaloguj się</h1>
+              {% if form.errors %}
+              <p>
+                Nazwa użytkownika lub hasło są nieprawidłowe.
+                Spróbuj ponownie.
+              </p>
+            {% else %}
+            <p class="text-white">
+              Wypełnij poniższy formularz, aby się zalogować.
+              Jeżeli nie masz jeszcze konta, możesz je utworzyć <a href="{% url 'main:register' %}" class="text-white">tutaj</a>.
+            </p>
+            
+            {% endif %}
+            <form action="{% url 'main:login' %}" method="post">
+              <div class="form-group-stack">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}" />
+                
+                  
+                  {% for field in form %}
+                  <div class="form-group">
+                    <label class="form-label form-label--space-between" for="{{ field.auto_id }}">{{ field.label }}</label>
+                    {{ field }}
+                  </div>
+                  {% endfor %}
+                </div>
+                <br>
+                <div class="form-group">
+                  <input type="submit" class="btn btn--primary btn--primary-shadow btn--lg btn--block" value="Zaloguj">
+                </div>
+              </div>
+            </form>
+          </div>
+      </div>
+      <div class="l-auth__sidebar"></div>
+  </div>
+</main>
+
+{% endblock %}

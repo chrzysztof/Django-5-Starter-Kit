@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+
+    
+    <script defer src="{% static 'assets/js/data/search.js' %}"></script>
+    <script defer src="{% static 'assets/js/data/orders.js' %}"></script>
+    <script defer src="{% static 'assets/js/data/products.js' %}"></script>
+    <script defer src="{% static 'assets/js/data/customers.js' %}"></script>
+    <script defer src="{% static 'assets/js/data/categories.js' %}"></script>
+    <script defer src="{% static 'assets/js/data-table.js' %}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="{% static 'assets/js/theme-switcher.js' %}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="{% static 'assets/js/charts.js' %}" type="module"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>

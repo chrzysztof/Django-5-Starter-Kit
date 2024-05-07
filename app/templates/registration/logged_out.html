@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Wylogowanie{% endblock %}
+
+{% block content %}
+<main class="l-auth">
+  <div class="l-auth__inner">
+      <div class="l-auth__form">
+          <a class="l-auth__logo" href="#">
+              <img src="https://ui.sprucecss.com/img/cone-logo.svg" alt="Cone" height="48" width="48" />
+          </a>
+          <div class="auth-form">
+              <h1 class="auth-form__title">Wylogowanie</h1>
+              <p>
+                Pomyślnie wylogowano.
+                Możesz <a href="{% url "main:login" %}">zalogować się ponownie</a>.
+              </p>
+          </div>
+      </div>
+      <div class="l-auth__sidebar"></div>
+  </div>
+</main> 
+{% endblock %}

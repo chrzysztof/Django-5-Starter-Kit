@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Utwórz konto{% endblock %}
+
+{% block content %}
+<main class="l-auth">
+  <div class="l-auth__inner">
+      <div class="l-auth__form">
+          <a class="l-auth__logo" href="#">
+              <img src="https://ui.sprucecss.com/img/cone-logo.svg" alt="Cone" height="48" width="48" />
+          </a>
+          <div class="auth-form">
+            <form method="post">
+
+              {% for field in user_form %}
+              <div class="form-group">
+                <label class="form-label form-label--space-between" for="{{ field.auto_id }}">{{ field.label }}</label>
+                {{ field }}
+              </div>
+              {% endfor %}
+              {% csrf_token %}
+              <p><input class="btn btn--primary btn--primary-shadow btn--lg btn--block" type="submit" value="Utwórz konto"></p>
+            </form>
+          </div>
+      <div class="l-auth__sidebar"></div>
+  </div>
+</main>
+
+{% endblock %}

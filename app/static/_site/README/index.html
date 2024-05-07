@@ -1,0 +1,65 @@
+<p>
+  <a href="https://sprucecss.com/#gh-light-mode-only">
+    <br/>
+    <img src="./.github/spruce-logo-dark.svg" alt="Spruce CSS" width="160">
+    <br/>
+  </a>
+  <a href="https://sprucecss.com/#gh-dark-mode-only">
+    <br/>
+    <img src="./.github/spruce-logo-light.svg" alt="Spruce CSS" width="160">
+    <br/>
+  </a>
+</p>
+<p><strong>The “Spruce CSS Starter Kit” repository contains a simple foundation for starting your next project with ease using Spruce CSS.</strong></p>
+<p>It is a mix of essential tools that we like to use and necessary for working in the browser fast. This project aims to quickly design and then get the source files to integrate into other platforms like WordPress, Laravel, or Gatsby, but you can also use it as your primary tool, depending on your needs.</p>
+<p>It contains everything that is needed to design in the browser. If you want to know why it is a good idea to develop in the browser, you can read about <a href="https://pineco.de/designing-in-the-browser/">my thoughts on Pine</a>.</p>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#get-up-and-running">Get Up and Running</a></li>
+<li><a href="#pug">Pug</a></li>
+<li><a href="#scss">SCSS</a></li>
+<li><a href="#browsersync">Browsersync</a></li>
+<li><a href="#more-scripts">More Scripts</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2>Get Up and Running</h2>
+<p>The Starter Kit using <a href="#pug">Pug</a>, <a href="#sass">Sass</a>, <a href="#browsersync">Browsersync</a>.</p>
+<ol>
+<li>
+<p><strong>Clone the repository.</strong></p>
+</li>
+<li>
+<p><strong>Install the dependencies.</strong></p>
+<p>In the <code>package.json</code> file, you will find all of the dependencies to install them using the following command:</p>
+<pre><code class="language-shell">npm install
+</code></pre>
+</li>
+<li>
+<p><strong>Run the development mode</strong></p>
+<p>To run the development mode, use the <code>dev</code> script, which does everything (start the webserver, compile Pug and Sass). See more about the scripts in the <code>package.json</code> file.</p>
+<pre><code class="language-shell">npm start
+</code></pre>
+<p>This script will also watch for changes in the <code>pug</code> and <code>assets/scss</code> folders.</p>
+</li>
+<li>
+<p><strong>Run the production mode</strong></p>
+<p>Running the <code>prod</code> script, you can create compressed CSS files without .map. Also, it will compile the <code>pug</code> files and run the beautifying too.</p>
+<pre><code class="language-shell">npm run prod
+</code></pre>
+</li>
+</ol>
+<h2>Pug</h2>
+<p>Pug (formerly Jade) is a JavaScript template engine primarily for Node. It compiles to HTML, has a simplified syntax. Easy to use, handles include (separate files like a header or footer component), can work with JSON data.</p>
+<p>You can find the templates in the <code>pug/templates</code> folder in the root, and it will compile into the <code>html</code> folder.</p>
+<p>Under the <code>pug/assets</code> folder, you find the <code>data.json</code> and the <code>mixin.pug</code> files. The first can contain any JSON formatted data for later use, and the second is a simple mixin for the icons. You can find an example for both in the <code>pug/templates/components/docs.pug</code> file.</p>
+<h2>SCSS</h2>
+<p>The project compiles the SCSS files from the <code>assets/scss</code> folder into the <code>assets/css</code> folder. The project includes Spruce CSS, which gives most of the styles, but we have some pre-styled, minimal components too.</p>
+<h2>Browsersync</h2>
+<p>Running the <code>npm run dev</code> will also start up a Browsersync server which you can share across your local network. It will automatically open the URL in your default browser with the <code>html/page/index.html</code> file.</p>
+<h2>More Scripts</h2>
+<p><strong>HTML Beautify:</strong> You can run your generated HTML files through a <a href="https://www.npmjs.com/package/js-beautify">beautifier</a> with the <code>npm run beautify</code> command; this is needed because sometimes the Pug pretty formatting makes a mistake (or you need another indenting). This will also run with the <code>prod</code> script automatically.</p>
+<p><strong>Sass Lint:</strong> You can lint your SCSS files with <a href="https://stylelint.io/">Stylelint</a> and <a href="https://github.com/bjankord/stylelint-config-sass-guidelines">stylelint-config-sass-guidelines</a> preset with the <code>npm run sass-lint</code> command. Use the <code>npm run sass-lint-with-fix</code> command if you want automatic fixes.</p>
+<p><strong>Icons:</strong> A starter kit uses a simple SVG-based icon solution. You can extend it through <code>assets/icon/icons.svg</code> file. You have to include them in any Pug template (like you see it in the <code>docs.pug</code>) to use.</p>
+<h2>License</h2>
+<p>The code is licensed under the <a href="LICENSE">MIT</a>.</p>
