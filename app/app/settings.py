@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 #Login and logout 
 LOGIN_REDIRECT_URL = 'main:dashboard'
