@@ -86,8 +86,9 @@
                 <span class="btn__counter">4</span>
             </button>
             <div class="user-menu" x-data="{ open: false }" @click.outside="open = false">
-                <img class="user-menu__avatar" src="{{ user.profile.photo.url }}" alt="{{ user.first_name }} {{ user.last_name }}">
-                
+                    <img class="user-menu__avatar" src="{{ user.profile.get_photo_url }}" alt="{{ user.first_name }} {{ user.last_name }}">
+
+
                 <div class="user-menu__caption">
                     <span class="user-menu__role"> {{ user.first_name }} {{ user.last_name }}</span>
                     <span class="user-menu__display-name">{{ user.email }}</span>
