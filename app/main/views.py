@@ -10,7 +10,7 @@ from django.contrib import messages
 # Create your views here.
 
 # ************************************************************
-# Strona logowania
+# Login page
 # ************************************************************
 def user_login(request):
     if request.method == 'POST':
@@ -34,7 +34,7 @@ def user_login(request):
 
 
 # ************************************************************
-# Rejestracja użytkownika
+# Registration
 # ************************************************************
 def register(request):
     if request.method == 'POST':
@@ -60,8 +60,12 @@ def register(request):
 
 
 # ************************************************************
-# Edycja profilu użytkownika
+# Account page
 # ************************************************************
+@login_required
+def details(request):
+    return render(request, 'account/details.html')
+
 @login_required
 def edit(request):
     if request.method == 'POST':
@@ -91,7 +95,7 @@ def edit(request):
 
 
 # ************************************************************
-# Panel główny
+# Dashboard
 # ************************************************************
 @login_required
 def dashboard(request):
@@ -103,7 +107,7 @@ def empty(request):
 
 
 # ************************************************************
-# Strona główna
+# Homepage
 # ************************************************************
 def home(request):
     return render(request, 'pages/home.html')

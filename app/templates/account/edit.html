@@ -12,7 +12,7 @@
                 <div class="app-heading__inner">
                     <div class="app-heading__caption">
                         <h1 class="app-heading__title">Account settings </h1>
-                        <p>Ustawienia konta możesz zmienić za pomocą poniższego formularza:</p>
+                        <p>Set up your account details</p>
                     </div>
                     <div class="app-heading__actions">
                     </div>
@@ -28,17 +28,12 @@
                                 <ul>
                                     <li>
                                         <a href="/account/profile/" aria-current="page" data-state="active">
-                                            Profile
+                                            Account details
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/account/notifications/">
-                                            Notifications
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/account/password/">
-                                            Password
+                                        <a href="{% url 'main:password_change' %}">
+                                            Password change
                                         </a>
                                     </li>
                                 </ul>

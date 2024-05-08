@@ -1,5 +1,5 @@
 from django.urls import include, path
-from .views import user_login, dashboard, register, edit, home, empty
+from .views import user_login, dashboard, register, edit, home, empty, details
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -10,18 +10,19 @@ urlpatterns = [
     path('', home, name='home'),
 
     #================================================================================================
-    # Logowanie i rejestracja
+    # Login and register
     #================================================================================================
     
-    # Adresy URL rejestracja.
+    # Registration.
 
     path('register/', register, name='register'),
      
-    # Adresy URL logowanie.
+    # Login URL.
         
-    path('login/', user_login, name='login'),
+     path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'), 
 
-    # Adresy URL przeznaczone do obsługi zmiany hasła.
+    # Password change.
         
      path('password-change/',
           auth_views.PasswordChangeView.as_view(),
@@ -55,14 +56,14 @@ urlpatterns = [
 
     # Adresy URL kokpit.
 
-     path('panel/main/', include('django.contrib.auth.urls')),
-     path('panel/main/', dashboard, name='dashboard'),
+     path('', include('django.contrib.auth.urls')),
+     path('panel/main', dashboard, name='dashboard'),
 
      path('panel/empty/', empty, name='empty'),
      
-    # Adresy URL panel użytkownika. 
-       
-     path('panel/edit/', edit, name='edit'),
+    # Account URLS. 
+     path('account/details/', details, name='details'),  
+     path('account/edit/', edit, name='edit'),
  ]
 
 if settings.DEBUG:
