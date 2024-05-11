@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Panel główny{% endblock %}
+
+{% block content %}
+<div class="l-main">
+    {% include 'partials/_sidebar.html' %}
+    <main id="content" class="l-main__body" data-item="body">
+        {% include 'partials/_header.html' %}
+        <div class="app-heading">
+            <div class="container">
+                <div class="app-heading__inner">
+                    <div class="app-heading__caption">
+                        <h1 class="app-heading__title">Item Listing</h1>
+                    </div>
+                    <div class="app-heading__actions">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="app-body">
+                <div class="l-row l-row--column:sm:2 l-row--column:md:1 l-row--column:lg:2">
+
+                </div>
+            </div>
+        </div>
+        {% include 'partials/_footer.html' %}
+    </main>
+</div>
+
+{% endblock %}

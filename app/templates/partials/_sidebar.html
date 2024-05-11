@@ -108,7 +108,7 @@
             </div>
             <div class="block-navigation" x-data="{ open: false }">
                 <h3 class="block-navigation__title">
-                    Shop
+                    Items
                     <button class="btn btn--light btn--sm btn--icon block-navigation__toggle" aria-label="Toggle navigation" :aria-expanded="open" @click="open = ! open" x-cloak>
                         <svg aria-hidden='true' fill='none' focusable='false' height='24' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' stroke='currentColor' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg' class='btn__icon'>
                             <polyline points='18 15 12 9 6 15'></polyline>
@@ -118,73 +118,23 @@
                 <nav class="block-navigation__menu block-navigation__menu--breakout" data-state="closed" :data-state="open ? 'open' : 'closed'">
                     <ul>
                         <li>
-                            <a href="/products/">
+                            <a href="{% url "items:items_listing" %}">
                                 <svg aria-hidden='true' fill='none' focusable='false' height='24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' stroke='currentColor' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg' class='icon'>
                                     <path d='M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'></path>
                                     <line x1='3' y1='6' x2='21' y2='6'></line>
                                     <path d='M16 10a4 4 0 0 1-8 0'></path>
                                 </svg>
-                                Products
+                                Items
                             </a>
                         </li>
                         <li>
-                            <a href="/orders/">
-                                <svg aria-hidden='true' fill='none' focusable='false' height='24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' stroke='currentColor' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg' class='icon'>
-                                    <circle cx='9' cy='21' r='1'></circle>
-                                    <circle cx='20' cy='21' r='1'></circle>
-                                    <path d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'></path>
-                                </svg>
-                                Orders
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/customers/">
-                                <svg aria-hidden='true' fill='none' focusable='false' height='24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' stroke='currentColor' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg' class='icon'>
-                                    <path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'></path>
-                                    <circle cx='9' cy='7' r='4'></circle>
-                                    <path d='M23 21v-2a4 4 0 0 0-3-3.87'></path>
-                                    <path d='M16 3.13a4 4 0 0 1 0 7.75'></path>
-                                </svg>
-                                Customers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/categories/">
+                            <a href="{% url "items:categories" %}">
                                 <svg aria-hidden='true' fill='none' focusable='false' height='24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' stroke='currentColor' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg' class='icon'>
                                     <polyline points='21 8 21 21 3 21 3 8'></polyline>
                                     <rect x='1' y='3' width='22' height='5'></rect>
                                     <line x1='10' y1='12' x2='14' y2='12'></line>
                                 </svg>
-                                Categories
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="block-navigation" x-data="{ open: false }">
-                <h3 class="block-navigation__title">
-                    Auth
-                    <button class="btn btn--light btn--sm btn--icon block-navigation__toggle" aria-label="Toggle navigation" :aria-expanded="open" @click="open = ! open" x-cloak>
-                        <svg aria-hidden='true' fill='none' focusable='false' height='24' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' stroke='currentColor' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg' class='btn__icon'>
-                            <polyline points='18 15 12 9 6 15'></polyline>
-                        </svg>
-                    </button>
-                </h3>
-                <nav class="block-navigation__menu block-navigation__menu--breakout" data-state="closed" :data-state="open ? 'open' : 'closed'">
-                    <ul>
-                        <li>
-                            <a href="/sign-in/">
-                                Sign In
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/sign-up/">
-                                Sign Up
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/password-reset/">
-                                Password Reset
+                                Items Categories
                             </a>
                         </li>
                     </ul>
