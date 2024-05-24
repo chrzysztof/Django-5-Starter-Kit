@@ -16,14 +16,32 @@ function dataTable( // eslint-disable-line
     total: null,
 
     async init() {
-      const data = window[dataSource];
-      data.forEach((d, i) => d.id = i); // eslint-disable-line
+      // Funkcja pomocnicza do czekania na dane
+      const waitForData = async () => {
+          while (!window.categories) {
+              await new Promise(resolve => setTimeout(resolve, 100)); // Czekaj 100ms
+          }
+          return window.categories;
+      };
+  
+      // Poczekaj na załadowanie danych
+      const data = await waitForData();
+      
+      // Dodanie ID dla każdego elementu (index + 1 zamiast samego indexu)
+      data.forEach((d, i) => d.id = i + 1); // eslint-disable-line
+      
+      // Przypisanie danych do this.items
       this.items = data;
+      
+      // Ustawienie całkowitej liczby elementów
       this.total = data.length;
+      
+      // Aktualizacja liczby wyników do wyświetlenia
       this.resultsCount = `Showing 1 to ${Math.min(this.pageSize, data.length)} of ${data.length} results`;
-
+  
+      // Obserwowanie zmiany pageSize i aktualizacja liczby wyników
       this.$watch('pageSize', () => this.updateResultsCount());
-    },
+  },
 
     viewPage(index) {
       this.curPage = index;
